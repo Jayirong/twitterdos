@@ -1,19 +1,17 @@
 package com.twitter.twitterdos;
 
 import java.util.List;
-import java.util.Map;
 
 //se define el objeto publicacion con sus atributos
-
 public class Publicacion {
     private int id;
     private String autor;
     private String texto;
-    private Map<Integer, Comentario> comentarios;
+    private List <Comentario> comentarios;
     private List<Integer> calificaciones;
 
 //Constructor
-    public Publicacion(int id, String autor, String texto, Map<Integer, Comentario> comentarios, List<Integer> calificaciones){
+    public Publicacion(int id, String autor, String texto, List <Comentario> comentarios, List<Integer> calificaciones){
         this.id = id;
         this.autor = autor;
         this.texto = texto;
@@ -35,7 +33,7 @@ public class Publicacion {
         return texto;
     }
 
-    public Map<Integer, Comentario> getComentarios(){
+    public List <Comentario> getComentarios(){
         return comentarios;
     }
 
