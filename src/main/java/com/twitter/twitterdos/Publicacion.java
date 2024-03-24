@@ -7,6 +7,7 @@ public class Publicacion {
     private int id;
     private String autor;
     private String texto;
+    //cabe resaltar que las calificaciones van aparte del comentario puesto que no es necesario comentar para calificar
     private List <Comentario> comentarios;
     private List<Integer> calificaciones;
 

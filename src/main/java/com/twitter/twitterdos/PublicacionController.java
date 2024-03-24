@@ -1,11 +1,16 @@
 package com.twitter.twitterdos;
 
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 //Especificamos que dentro del framework Spring Boot esto es un controlador
@@ -39,9 +44,36 @@ public class PublicacionController {
                                             Arrays.asList(2)));
     }
 
+    //dado a que el JSON me salía desordenado y después de probar distintos métodos sin poder ordenarlo
+    //finalmente encontré esta forma, un LinkedHashMap, el cual externalicé para usarlo en posteriores métodos, básicamente crea un mapa ordenado a mi gusto
+    private Map<String, Object> crearMapPublicacion(Publicacion publicacion){
+        Map<String, Object> publicacionMap = new LinkedHashMap<>();
+            publicacionMap.put("id", publicacion.getIdPublicacion());
+            publicacionMap.put("autor", publicacion.getAutorPublicacion());
+            publicacionMap.put("texto", publicacion.getTextoPublicacion());
+            publicacionMap.put("comentarios", publicacion.getComentarios());
+            publicacionMap.put("calificaciones", publicacion.getCalificaciones());
+            return publicacionMap;
+    }
+
     @GetMapping("/publicaciones")
-    public List<Publicacion> getPublicaciones() {
-        return publicaciones;
+    public ResponseEntity<List<Map<String, Object>>> getPublicaciones() {
+        List<Map<String, Object>> publicacionesMap = new ArrayList<>();
+        for (Publicacion publicacion : publicaciones) {
+            Map<String, Object> publicacionMap = crearMapPublicacion(publicacion);
+            publicacionesMap.add(publicacionMap);
+        }
+        return ResponseEntity.ok(publicacionesMap);
+    }
+
+    @GetMapping("/publicaciones/{id}")
+    public ResponseEntity<Map<String, Object>> getPublicacionById(@PathVariable int id) {
+        for (Publicacion publicacion : publicaciones)
+            if (publicacion.getIdPublicacion() == id) {
+                Map<String, Object> publicacionMap = crearMapPublicacion(publicacion);
+                return ResponseEntity.ok(publicacionMap);
+            }
+            return null;
     }
     
     
