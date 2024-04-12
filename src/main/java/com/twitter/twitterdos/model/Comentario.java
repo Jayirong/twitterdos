@@ -1,4 +1,4 @@
-package com.twitter.twitterdos;
+package com.twitter.twitterdos.model;
 
 public class Comentario {
     //se definen los atributos del objeto "coemntario"

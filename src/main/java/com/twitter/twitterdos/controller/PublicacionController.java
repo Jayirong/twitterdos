@@ -1,4 +1,4 @@
-package com.twitter.twitterdos;
+package com.twitter.twitterdos.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -7,6 +7,10 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.twitter.twitterdos.model.Comentario;
+import com.twitter.twitterdos.model.Publicacion;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
