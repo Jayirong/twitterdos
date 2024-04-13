@@ -22,36 +22,32 @@ public class Publicacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "autor")
     private String autor;
+
     @Column(name = "texto")
     private String texto;
     //cabe resaltar que las calificaciones van aparte del comentario puesto que no es necesario comentar para calificar
     //el @OneToMany(mappedBy = "Tupoto") vendria siendo lo que es una relacion uno es a muchos, una pub tiene varios comentarios, esto se refleja en la tabla de DB como una FK
     @OneToMany(mappedBy = "publicacion")
     private List <Comentario> comentarios;
-    private List<Integer> calificaciones;
 
-//Constructor
-    public Publicacion(int id, String autor, String texto, List <Comentario> comentarios, List<Integer> calificaciones){
-        this.id = id;
-        this.autor = autor;
-        this.texto = texto;
-        this.comentarios = comentarios;
-        this.calificaciones = calificaciones;
-        
-    }
+    @OneToMany(mappedBy = "publicacion")
+    private List<Calificacion> calificaciones;
 
+    //por efectos, nos fumamos el constructor
+    
     //Getter
-    public int getIdPublicacion(){
+    public Long getId(){
         return id;
     }
 
-    public String getAutorPublicacion(){
+    public String getAutor(){
         return autor;
     }
 
-    public String getTextoPublicacion(){
+    public String getTexto(){
         return texto;
     }
 
@@ -59,8 +55,30 @@ public class Publicacion {
         return comentarios;
     }
 
-    public List<Integer> getCalificaciones(){
+    public List<Calificacion> getCalificaciones(){
         return calificaciones;
+    }
+
+    //Setters
+
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public void setAutor(String autor){
+        this.autor = autor;
+    }
+
+    public void setTexto(String texto){
+        this.texto = texto;
+    }
+
+    public void setComentarios(List<Comentario> comentarios){
+        this.comentarios = comentarios;
+    }
+
+    public void setCalificaciones(List<Calificacion> calificaciones){
+        this.calificaciones = calificaciones;
     }
 
 }
