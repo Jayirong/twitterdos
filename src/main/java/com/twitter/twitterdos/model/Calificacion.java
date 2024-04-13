@@ -23,7 +23,7 @@ public class Calificacion {
     private float nota;
 
     @ManyToOne
-    @JoinColumn(name = "id_pubicacion")
+    @JoinColumn(name = "id_publicacion")
     private Publicacion publicacion;
 
     //Getters
