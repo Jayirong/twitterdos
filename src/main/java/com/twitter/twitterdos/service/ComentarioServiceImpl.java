@@ -1,6 +1,7 @@
 package com.twitter.twitterdos.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class ComentarioServiceImpl implements ComentarioService{
     @Override
     public List<Comentario> getComentariosByPublicacion(Long idPublicacion){
         return comentarioRepository.findByPublicacionId(idPublicacion);
+    }
+
+    @Override
+    public Optional<Comentario> getComentarioByPublicacion(Long id){
+        return comentarioRepository.findById(id);
     }
 
     @Override
