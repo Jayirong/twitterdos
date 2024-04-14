@@ -25,7 +25,6 @@ public class PublicacionServiceImpl implements PublicacionService{
         return publicacionRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     @Override
     public Optional<Publicacion> getPublicacionById(Long id){
         return publicacionRepository.findById(id);

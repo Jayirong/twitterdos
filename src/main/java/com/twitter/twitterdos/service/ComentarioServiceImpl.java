@@ -18,10 +18,9 @@ public class ComentarioServiceImpl implements ComentarioService{
         return comentarioRepository.save(comentario);
     }
 
-    @SuppressWarnings("null")
     @Override
     public List<Comentario> getComentariosByPublicacion(Long idPublicacion){
-        return comentarioRepository.findByIdPublicacion(idPublicacion);
+        return comentarioRepository.findByPublicacionId(idPublicacion);
     }
 
     @Override

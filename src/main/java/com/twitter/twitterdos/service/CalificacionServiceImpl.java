@@ -18,10 +18,9 @@ public class CalificacionServiceImpl implements CalificacionService{
         return calificacionRepository.save(calificacion);
     }
 
-    @SuppressWarnings("null")
     @Override
     public List<Calificacion> getCalificacionesByPublicacion(Long idPublicacion){
-        return calificacionRepository.findByIdPublicacion(idPublicacion);
+        return calificacionRepository.findByPublicacionId(idPublicacion);
     }
 
     @Override
