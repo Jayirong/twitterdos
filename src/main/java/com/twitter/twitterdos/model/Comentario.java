@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -25,9 +23,8 @@ public class Comentario {
     @Column(name = "autor")
     private String autor;
 
-    @ManyToOne
-    @JoinColumn(name = "id_publicacion")
-    private Publicacion publicacion;
+    @Column(name = "publicacionId")
+    private Long publicacionId;
 
     
     //getters
@@ -43,8 +40,8 @@ public class Comentario {
         return autor;
     }
 
-    public Publicacion getPublicacion(){
-        return publicacion;
+    public Long getPublicacionId(){
+        return publicacionId;
     }
 
     //Setters
@@ -60,8 +57,8 @@ public class Comentario {
         this.autor = autor;
     }
 
-    public void setPublicacion(Publicacion publicacion){
-        this.publicacion = publicacion;
+    public void setPublicacionId(Long publicacionId){
+        this.publicacionId = publicacionId;
     }
 
 }

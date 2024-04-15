@@ -30,7 +30,7 @@ public class Publicacion {
     private String texto;
     //cabe resaltar que las calificaciones van aparte del comentario puesto que no es necesario comentar para calificar
     //el @OneToMany(mappedBy = "Tupoto") vendria siendo lo que es una relacion uno es a muchos, una pub tiene varios comentarios, esto se refleja en la tabla de DB como una FK
-    @OneToMany(mappedBy = "publicacion")
+    @OneToMany(mappedBy = "publicacionId")
     private List <Comentario> comentarios;
 
     @OneToMany(mappedBy = "publicacion")

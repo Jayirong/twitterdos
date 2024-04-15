@@ -15,13 +15,13 @@ public class ComentarioServiceImpl implements ComentarioService{
     private ComentarioRepository comentarioRepository;
 
     @Override
-    public Comentario createComentario(Long idPublicacion, Comentario comentario){
+    public Comentario createComentario(Long publicacionId, Comentario comentario){
         return comentarioRepository.save(comentario);
     }
 
     @Override
-    public List<Comentario> getComentariosByPublicacion(Long idPublicacion){
-        return comentarioRepository.findByPublicacionId(idPublicacion);
+    public List<Comentario> getComentariosByPublicacion(Long publicacionId){
+        return comentarioRepository.findByPublicacionId(publicacionId);
     }
 
     @Override

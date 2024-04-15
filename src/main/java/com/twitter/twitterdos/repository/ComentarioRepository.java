@@ -7,6 +7,6 @@ import com.twitter.twitterdos.model.Comentario;
 import java.util.List;
 
 public interface ComentarioRepository extends JpaRepository<Comentario, Long>{
-    List<Comentario> findByPublicacionId(Long idPublicacion);
+    List<Comentario> findByPublicacionId(Long publicacionId);
     
 }
