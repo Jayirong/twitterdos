@@ -29,7 +29,7 @@ public class ComentarioController {
     private ComentarioService comentarioService;
 
     @PostMapping
-    public Comentario createcComentario(@PathVariable Long id, @RequestBody Comentario comentario) {        
+    public Comentario createComentario(@PathVariable Long id, @RequestBody Comentario comentario) {        
         return comentarioService.createComentario(id, comentario);
     }
     
