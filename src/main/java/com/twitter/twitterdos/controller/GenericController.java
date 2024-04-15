@@ -25,7 +25,7 @@ public class GenericController {
         return sumatoria / calificaciones.size();
     }
 
-
+    //promedio de calificaciones de una publicacion
     @GetMapping("/publicaciones/{id}/promedio-calificaciones")
     public ResponseEntity<Double> getPromedioCalificaciones(@PathVariable Long id) {
         List<Calificacion> calificaciones = calificacionService.getCalificacionesByPublicacion(id);
