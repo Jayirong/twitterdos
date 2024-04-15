@@ -14,13 +14,13 @@ public class CalificacionServiceImpl implements CalificacionService{
     private CalificacionRepository calificacionRepository;
 
     @Override
-    public Calificacion createCalificacion(Long idPublicacion, Calificacion calificacion){
+    public Calificacion createCalificacion(Long publicacionId, Calificacion calificacion){
         return calificacionRepository.save(calificacion);
     }
 
     @Override
-    public List<Calificacion> getCalificacionesByPublicacion(Long idPublicacion){
-        return calificacionRepository.findByPublicacionId(idPublicacion);
+    public List<Calificacion> getCalificacionesByPublicacion(Long publicacionId){
+        return calificacionRepository.findByPublicacionId(publicacionId);
     }
 
     @Override

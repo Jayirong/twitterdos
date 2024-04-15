@@ -33,7 +33,7 @@ public class Publicacion {
     @OneToMany(mappedBy = "publicacionId")
     private List <Comentario> comentarios;
 
-    @OneToMany(mappedBy = "publicacion")
+    @OneToMany(mappedBy = "publicacionId")
     private List<Calificacion> calificaciones;
 
     //por efectos, nos fumamos el constructor
