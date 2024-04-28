@@ -1,0 +1,3 @@
+com\twitter\twitterdos\service\PublicacionServiceTest.class
+com\twitter\twitterdos\repository\ComentarioRepositoryTest.class
+com\twitter\twitterdos\TwitterdosApplicationTests.class
